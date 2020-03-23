@@ -1,6 +1,6 @@
 cls
 @echo off
-TITLE Isometric-Server
+TITLE Basic HTTP-Server
 MODE 100, 60
 node index.js
 @echo on

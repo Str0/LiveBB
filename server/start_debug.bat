@@ -1,6 +1,6 @@
 cls
 @echo off
-TITLE Isometric-Server (DEBUG)
+TITLE Basic HTTP-Server (DEBUG)
 MODE 100, 60
 nodemon --watch server index.js -q
 @echo on
