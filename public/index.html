@@ -1,0 +1,129 @@
+<html>
+	<head>
+		<title>BB-Code Parser Test</title>
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script src="js/lib/bb-parser.js"></script>
+		<script src="js/lib/print.min.js"></script>
+		<script src="js/lib/bootbox.js"></script>
+		<script src="js/lib/js.cookie.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="resources/stylesheet/print.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="resources/stylesheet/style.css">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		<script src="js/editor.js"></script>
+		<script src="js/status.js"></script>
+		<script src="js/storage.js"></script>
+		<script src="js/toast.js"></script>
+		<script src="js/index.js"></script>		
+	</head>
+	<body>
+		<nav id="toolbar" class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#"><span style="color:#ac0000;">●</span> LiveBB</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="navbar-collapse" id="toolbar-items">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">
+							Editor
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item editor-button" id="button_BB_Bold" href="#"><b>Bold</b></a>
+							<a class="dropdown-item editor-button" id="button_BB_Italic" href="#"><i>Italic</i></a>
+							<a class="dropdown-item editor-button" id="button_BB_Underline" href="#"><u>Underline</u></a>
+							<a class="dropdown-item editor-button" id="button_BB_Linebreak" href="#">Linebreak</a>
+							<a class="dropdown-item editor-button" id="button_BB_Strikethrough" href="#"><s>Strikethrough</s></a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item editor-button" id="button_BB_AlignLeft" href="#">Left</a>
+							<a class="dropdown-item editor-button" id="button_BB_AlignCenter" href="#">Center</a>
+							<a class="dropdown-item editor-button" id="button_BB_AlignRight" href="#">Right</a>
+							<a class="dropdown-item editor-button" id="button_BB_AlignJustify" href="#">Justify</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item editor-button" id="button_BB_FontFamily" href="#">Font</a>
+							<a class="dropdown-item editor-button" id="button_BB_FontSize" href="#">Font-Size</a>
+							<a class="dropdown-item editor-button" id="button_BB_FontColor" href="#">Font-Color</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item editor-button" id="button_BB_List" href="#">List</a>
+							<a class="dropdown-item editor-button" id="button_BB_ListItem" href="#">List-Item</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item editor-button" id="button_BB_Table" href="#">Table</a>
+							<a class="dropdown-item editor-button" id="button_BB_TableRow" href="#">Table Row</a>
+							<a class="dropdown-item editor-button" id="button_BB_HeadColumn" href="#">Table Head-Column</a>
+							<a class="dropdown-item editor-button" id="button_BB_Column" href="#">Table Column</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item editor-button" id="button_BB_HorizontalLine" href="#">Horizontal-Line</a>
+							<a class="dropdown-item editor-button" id="button_BB_Quote" href="#">Quote</a>
+							<a class="dropdown-item editor-button" id="button_BB_Divbox" href="#">Box</a>
+							<a class="dropdown-item editor-button" id="button_BB_Image" href="#">Image</a>
+							<a class="dropdown-item editor-button" id="button_BB_URL" href="#">Hyperlink</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown" style="margin-right: 12px;">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">
+							Load
+						</a>
+						<div id="loadDropDownList" class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item editor-button" id="button_load_file" href="#">File</b></a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item editor-button" id="button_load_quick" href="#">Quickload</b></a>
+						</div>
+					</li>
+					<li class="nav-item dropdown" style="margin-right: 12px;">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false">
+							Save
+						</a>
+						<div id="loadDropDownList" class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item editor-button" id="button_save" href="#">Save</b></a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item editor-button" id="button_save_quick" href="#">Quicksave</b></a>
+						</div>
+					</li>
+					<li class="nav-item" style="margin-left: 64px;">
+						<div class="nav-link custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="error_mark">
+							<label class="custom-control-label" for="error_mark">Mark error</label>
+						</div>
+					</li>
+				</ul>
+				<form class="my-2 my-lg-0;" style="padding-right: 120px;">
+					<span style="font-family: verdana;">
+						<badge id="status" class="badge"></badge></span>
+						<badge id="badge_size" class="badge badge-secondary">0kb</badge>
+						<badge id="badge_valid" class="badge badge-success">0</badge>
+						<badge id="badge_invalid" class="badge badge-danger">0</badge>
+					</span>
+				</form>
+				<form class="form-inline my-2 my-lg-0"></form>
+					<span style="font-family: verdana"><img src="resources/image/strobe.png"></img></span>
+					<span style="font-family: verdana"><img src="resources/image/fork.png"></img></span>
+				</form>
+			</div>
+		</nav>
+		<div id="toast_container" style="position: absolute; top: 0; right: 50%;z-index: 999">
+		
+		</div>
+		<div class="content" >
+			<div class="d-md-flex align-items-center h-100">
+				<div class="col-md-6 p-0 bg-indigo h-100">
+					<div class="form-group">
+						<textarea id="input" class="form-control" id="exampleFormControlTextarea1"></textarea>
+					</div>
+				</div>
+				<div class="col-md-6 bg-indigo h-100" style="max-height: 100%">
+					<div id="output"></div>
+				</div>
+			</div>
+		</div>
+		<label for="fileLoad">file dialog</label>
+		<input id="fileLoad" type="file" style="position: fixed; top: -100em">
+	</body>
+</html>

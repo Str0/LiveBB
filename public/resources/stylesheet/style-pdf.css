@@ -1,0 +1,18 @@
+#output::-webkit-scrollbar {
+	display: none;
+}
+
+#output {
+	-ms-overflow-style: none;
+}
+
+td{
+	white-space: pre-wrap;
+	padding: 20px;
+	text-align: left;
+}
+
+table
+{
+	width: 100%;
+}
