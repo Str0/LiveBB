@@ -1,6 +1,6 @@
 "use strict"
 let Express  = require('express')
-let Console = require('./console')
+let Console = require('./Console')
 class ServerCore 
 {
 	constructor() 

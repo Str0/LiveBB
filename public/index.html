@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>BB-Code Parser Test</title>
+		<title>LiveBB</title>
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -10,6 +10,7 @@
 		<script src="js/lib/print.min.js"></script>
 		<script src="js/lib/bootbox.js"></script>
 		<script src="js/lib/js.cookie.min.js"></script>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.png">
 		<link rel="stylesheet" type="text/css" href="resources/stylesheet/print.min.css"></link>
 		<link rel="stylesheet" type="text/css" href="resources/stylesheet/style.css">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -21,7 +22,7 @@
 	</head>
 	<body>
 		<nav id="toolbar" class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#"><span style="color:#ac0000;">●</span> LiveBB</a>
+			<a class="navbar-brand" href="#"><span class="text-focus-in" style="color:#ac0000;">●</span> LiveBB</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -103,8 +104,8 @@
 					</span>
 				</form>
 				<form class="form-inline my-2 my-lg-0"></form>
-					<span style="font-family: verdana"><img src="resources/image/strobe.png"></img></span>
-					<span style="font-family: verdana"><img src="resources/image/fork.png"></img></span>
+					<a id="strobe_link"  class="strobe-link" data-toggle="tooltip" data-placement="bottom" title="Contact me!" style="margin-right: 8px"><span data-toggle="modal" data-target="#contact_link"><span style="font-family: verdana"><img src="resources/image/strobe.png"></img></span></a></span>
+					<a target="_blank" id="git_link" href="https://github.com/Str0/LiveBB" data-toggle="tooltip" data-placement="bottom" title="GitHub"><span style="font-family: verdana"><img src="resources/image/fork.png"></img></span></a>
 				</form>
 			</div>
 		</nav>
@@ -125,5 +126,28 @@
 		</div>
 		<label for="fileLoad">file dialog</label>
 		<input id="fileLoad" type="file" style="position: fixed; top: -100em">
+		<!-- Modal -->
+		<div id="contact_link" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+		
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title"><span style="font-size:90%">Got questions? Need philosophical advice?</span></h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						
+					</div>
+					<div class="modal-body">
+						<p>Discord: Strobe#8152</p>
+						<p>E-Mail: <a href="mailto:devcxo@gmail.com">devcxo@gmail.com</a></p>
+						<img style="display: block; width: 70%; height: auto; margin: 0 auto" class="img-responsive" src="resources/image/handwriting_strobe.png"></img>
+					</div>
+					<div class="modal-footer">
+						
+					</div>
+				</div>
+		
+			</div>
+		</div>
 	</body>
 </html>

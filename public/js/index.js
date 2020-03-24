@@ -8,6 +8,12 @@ $( document ).ready(function() {
 	$('#input').val(StorageInstance.load(0))
 	$('#input').bind('input propertychange', parse)
 	$("#status").css('opacity', '0')
+	$('#git_link').tooltip({placement: 'bottom',trigger: 'manual'}).tooltip('show');
+	$('#strobe_link').tooltip({placement: 'bottom',trigger: 'manual'}).tooltip('show');
+	setTimeout(function()
+	{
+		$('[data-toggle="tooltip"]').tooltip('dispose');
+	}, 4000)
 	$('.editor-button').bind('click', 
 		function()
 		{

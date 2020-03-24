@@ -48,6 +48,7 @@ class Editor
           		fr.onload = function(){
 					$('#input').val((fr.result))
 					ToastInstance.add('Loaded '  + file.name + '!', null, 'check')
+					parse()
 				};
           		fr.readAsText(file);
 			})
